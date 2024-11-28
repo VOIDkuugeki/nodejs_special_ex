@@ -46,7 +46,6 @@
                             </div>
                             {{/each}}
                         </div>
-
                     </div> <!-- .beta-products-list -->
 
                     <div class="space50">&nbsp;</div>
@@ -59,7 +58,7 @@
                         </div>
 
                         <div class="row">
-                            {{#each newestProducts}}
+                            {{#each products}}
                             <div class="col-sm-3">
                                 <div class="single-item">
                                     {{#if this.promotion_price}}
@@ -94,12 +93,18 @@
                             {{/each}}
                         </div>
 
-
                         <div class="pagination">
-                            {{#each pagination}}
-                            <a href="?page={{this}}" class="{{#if this.active}}active{{/if}}">{{this}}</a>
+                            {{#if (gt currentPage 1)}}
+                            <a href="?page={{subtract currentPage 1}}">&laquo; Previous</a>
+                            {{/if}}
+
+                            {{#each (range 1 totalPages)}}
+                            <a href="?page={{this}}" class="{{#if (eq this ../currentPage)}}active{{/if}}">{{this}}</a>
                             {{/each}}
-                            <a href="?page={{nextPage}}">Next »</a>
+
+                            {{#if (lt currentPage totalPages)}}
+                            <a href="?page={{add currentPage 1}}">Next &raquo;</a>
+                            {{/if}}
                         </div>
                     </div>
                 </div>
@@ -109,66 +114,3 @@
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->
-
-<style>
-    /* Make the container a flexbox to ensure alignment */
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        /* Adjust gap as needed */
-    }
-
-    /* Ensure each product item has the same size */
-    .single-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        /* Ensure that all items have the same height */
-        border: 1px solid #ddd;
-        /* Optional: Add border for better visibility */
-        padding: 15px;
-        /* Optional: Padding inside each item */
-        box-sizing: border-box;
-    }
-
-    /* Make sure images scale properly */
-    .single-item-header img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        /* Ensure image aspect ratio is maintained */
-    }
-
-    /* Keep the product title and price consistently sized */
-    .single-item-title,
-    .single-item-price {
-        font-size: 1rem;
-        /* Adjust font size as needed */
-        text-align: center;
-        /* Ensure text is centered */
-    }
-
-    /* Align buttons and cart icon */
-    .single-item-caption {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .add-to-cart,
-    .beta-btn {
-        font-size: 1.1rem;
-    }
-
-    .add-to-cart i {
-        font-size: 1.3rem;
-    }
-
-    /* Optional: Make sure the columns in the row are properly aligned */
-    .col-sm-3 {
-        display: flex;
-        justify-content: space-around;
-    }
-</style>
