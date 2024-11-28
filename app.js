@@ -14,9 +14,6 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-	
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 const publicPath = path.resolve(__dirname, "public");
 
