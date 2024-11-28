@@ -114,3 +114,99 @@
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->
+
+
+<style>
+    /* Ensure the product items are aligned in a grid with a consistent size */
+    .beta-products-list .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .beta-products-list .col-sm-3 {
+        flex: 1 1 22%;
+        /* Adjusts to 4 items per row */
+        box-sizing: border-box;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .single-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #fff;
+        border: 1px solid #f0f0f0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        height: 100%;
+    }
+
+    /* To keep images uniform */
+    .single-item-header img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Styling for the product name */
+    .single-item-body .single-item-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Adjust product price */
+    .single-item-body .single-item-price {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust caption buttons */
+    .single-item-caption {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Pagination styling */
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        padding: 5px 10px;
+        margin: 0 5px;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        color: #333;
+        border-radius: 3px;
+    }
+
+    .pagination .active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    /* For smaller screens (mobile devices) */
+    @media (max-width: 768px) {
+        .beta-products-list .col-sm-3 {
+            flex: 1 1 48%;
+            /* 2 items per row */
+        }
+    }
+
+    /* For very small screens (small mobile devices) */
+    @media (max-width: 480px) {
+        .beta-products-list .col-sm-3 {
+            flex: 1 1 100%;
+            /* 1 item per row */
+        }
+    }
+</style>
